@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./config.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container" class="w-screen h-screen overflow-hidden">
+      <div class="flex justify-center absolute inset-x-0 top-0">
+        <button 
+          onclick="countdownConvert()"
+          type="button"
+          class="countdownConvertor mt-4 select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-orange-300 text-xl bg-stone-700 hover:bg-stone-900"
+        >
+        Convert To Countdown App
+        </button>
+        <button 
+        onclick="timeCounterConvert()"
+        type="button"
+        class="timeCounterConvertor mt-4 select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-orange-300 text-xl bg-stone-700 hover:bg-stone-900"
+        >
+        Convert To Time Counter App
+        </button>
+      </div>
+
+      <div id="timeCounter" class="h-full flex flex-col justify-center items-center">
+        <h1 class="text-black text-5xl">Time Counter</h1>
+        <div class="flex my-8">
+          <div class="flex flex-col items-center gap-3">
+            <h2 class="minCount text-black text-8xl border-2 border-stone-800 rounded-md p-2">00</h2>
+            <span class="text-white text-1xl">minutes</span>
+          </div>
+          <h2 class="text-stone-800 text-8xl"> : </h2>
+          <div class="flex flex-col items-center gap-3">
+            <h2 class="secCount text-amber-900 text-8xl border-2 border-stone-800 rounded-md p-2">00</h2>
+            <span class="text-white text-1xl">seconds</span>
+          </div>
+        </div>
+        <div class="flex gap-3 justify-center px-10">
+          <button 
+            onclick="countingStart()"
+            type="button"
+            class="startBtn select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-white bg-stone-700 hover:bg-stone-900"
+          >
+          Start
+          </button>
+          <button 
+          onclick="countingStop()"
+          type="button"
+          class="stopBtn select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-white bg-stone-700 hover:bg-stone-900"
+          >
+          Stop
+          </button>
+          <button
+          onclick="countingRestart()"
+            type="button"
+            class="restartBtn select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-white bg-stone-700 hover:bg-stone-900"
+          >
+          Restart
+          </button>
+        </div>
+      </div>
+
+      <div id="countdown" class="h-full flex flex-col justify-center items-center">
+        <h1 class="text-black text-5xl">Countdown</h1>
+        <div class="flex my-8">
+          <div class="flex flex-col items-center gap-3">
+            <h2 class="minCountInCountdown text-black text-8xl border-2 border-stone-800 rounded-md p-2">00</h2>
+            <span class="text-white text-1xl">minutes</span>
+          </div>
+          <h2 class="text-stone-800 text-8xl"> : </h2>
+          <div class="flex flex-col items-center gap-3">
+            <h2 class="secCountInCountdown text-amber-900 text-8xl border-2 border-stone-800 rounded-md p-2">00</h2>
+            <span class="text-white text-1xl">seconds</span>
+          </div>
+        </div>
+        <div class="flex gap-3 justify-center px-10">
+          <button 
+            onclick="countingStartInCountdown()"
+            type="button"
+            class="startBtnInCountdown select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-white bg-stone-700 hover:bg-stone-900"
+          >
+          Start
+          </button>
+          <button 
+          onclick="countingStopInCountdown()"
+          type="button"
+          class="stopBtnInCountdown select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-white bg-stone-700 hover:bg-stone-900"
+          >
+          Stop
+          </button>
+          <button
+          onclick="countingRestartInCountdown()"
+            type="button"
+            class="restartBtnInCountdown select-none inline-flex justify-center items-center px-4 py-2 text-sm font-medium rounded-md text-white bg-stone-700 hover:bg-stone-900"
+          >
+          Restart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

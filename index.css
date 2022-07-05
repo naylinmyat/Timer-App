@@ -1,0 +1,10 @@
+html{
+    font-size: 16px;
+}
+#container{
+    background-image: url(http://wallpapers.net/beautiful-space-hd-wallpaper/download/1366x768.jpg);
+    background-image: url(https://img1.goodfon.com/wallpaper/nbig/b/15/hourglass-glass-coins.jpg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    font-family: 'Nova Square', cursive;
+}
