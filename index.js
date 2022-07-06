@@ -10,11 +10,13 @@ const timeCounter = document.querySelector("#timeCounter");
 const countdown = document.querySelector("#countdown");
 const timeCounterConvertor = document.querySelector(".timeCounterConvertor");
 const countdownConvertor = document.querySelector(".countdownConvertor");
+const alarmAudio = document.querySelector(".alarmAudio");
 
 stopBtn.style.display = "none";
 stopBtnInCountdown.style.display = "none";
 timeCounterConvertor.style.display = "none";
 countdown.style.display = "none";
+alarmAudio.style.display = "none";
 
 function countdownConvert(){
     timeCounter.style.display = "none";
@@ -68,6 +70,7 @@ function countingRestart(){
     timerId = 0;
     count = 0;
     updateText(count);
+    countingStart();
 }
 
 // ----------------------------------------------------------------------------------------
@@ -88,10 +91,21 @@ function countingStartInCountdown(){
     startBtnInCountdown.style.display = "none";
     stopBtnInCountdown.style.display = "block";
 
+    pauseAlarm();
+
     if(timerIdInCountdown !== 0) return;
     timerIdInCountdown = setInterval(function(){
         countInCountdown--;
         updateTextInCountdown(countInCountdown);
+        if(countInCountdown < 0){
+            playAlarm();
+            clearInterval(timerIdInCountdown);
+            timerIdInCountdown = 0;
+            countInCountdown = 300;
+            updateTextInCountdown(countInCountdown);
+            stopBtnInCountdown.style.display = "none";
+            startBtnInCountdown.style.display = "block";
+        }
     },1000);
 }
 
@@ -111,4 +125,13 @@ function countingRestartInCountdown(){
     timerIdInCountdown = 0;
     countInCountdown = 300;
     updateTextInCountdown(countInCountdown);
+    countingStartInCountdown();
+}
+
+function playAlarm(){
+    alarmAudio.play();
+}
+
+function pauseAlarm(){
+    alarmAudio.pause();
 }
